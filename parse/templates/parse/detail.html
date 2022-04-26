@@ -1,0 +1,52 @@
+{% extends 'parse/base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="col-sm-6">
+              <div class="title">
+                <h2>{{ item.name }}</h2>
+                <br>
+                <ul>
+                  <li>{{ item.price }}</li>
+                  <li>{{ item.phone_numbers }}</li>
+                  <li>{{ item.cite }}</li>
+                </ul>
+              </div>
+              <div class="adress">
+                <h4>{{ item.city }}, {{ item.adress }}</h4>
+                <br>
+              </div>
+              <div class="usligi">
+                  <p>Услуги: {{ item.usligi }}</p>
+                  <br>
+                  <p> Вместимость: {{ item.vmestimost }}</p>
+                  <br>
+                  <p> Типы: {{ item.types }}</p>
+              </div>
+              <div class="discription">
+                <h4>{{ item.discription }}</h4>
+                <span>Время работы: {{ item.time }}</span>
+                <br>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <ul>
+                {% for i in item.photos.split %}
+                <li >
+                  <img src="{{ i }}">
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div><!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+  <!-- /.content -->

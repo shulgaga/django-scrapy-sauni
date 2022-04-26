@@ -1,0 +1,24 @@
+{% extends 'parse/base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block content %}
+<style>
+   .center {
+    width: 500px; /* Ширина элемента в пикселах */
+    padding: 30px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+    background: #5F9EA0; /* Цвет фона */
+   }
+ </style>
+<h1 class="center">Регистрация</h1>
+
+<form class="center" method="post">
+    {% csrf_token %}
+
+{% for f in form %}
+    <p ><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Зарегистрироваться</button>
+</form>
+{% endblock  %}
